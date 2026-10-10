@@ -1,0 +1,44 @@
+.card {
+  --card-w: clamp(236px, 70vw, 290px);
+  container-type: inline-size; container-name: gamecard;
+  flex: 0 0 var(--card-w); width: var(--card-w);
+  display: flex; flex-direction: column; overflow: hidden; border-radius: var(--radius-card);
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+  border: 1px solid var(--line);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.42), 0 0 0 0 rgba(111, 141, 255, 0);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s;
+  -webkit-user-select: none; user-select: none;
+}
+@media (min-width: 768px) { .card { --card-w: 256px; } }
+@media (min-width: 1200px) { .card { --card-w: 280px; } }
+@media (min-width: 1600px) { .card { --card-w: 296px; } }
+@media (hover: hover) {
+  .card:hover { transform: translateY(-6px); border-color: var(--line-strong); box-shadow: 0 22px 44px rgba(0, 0, 0, 0.5), 0 0 28px rgba(111, 141, 255, 0.2); }
+}
+.card:active { transform: scale(0.985); }
+
+.art { position: relative; aspect-ratio: 640 / 781; overflow: hidden; background: linear-gradient(110deg, #1e2139 30%, #2a2f55 50%, #1e2139 70%) 0 0 / 220% 100%; animation: sk 1.3s linear infinite; }
+.art.ready { animation: none; background: #1a1c33; }
+.art img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; opacity: 0; transform: scale(1.04); transition: opacity 0.5s, transform 0.8s var(--ease); pointer-events: none; }
+.art.ready img { opacity: 1; transform: scale(1); }
+@media (hover: hover) { .card:hover .art.ready img { transform: scale(1.035); } }
+.art::after { content: ""; position: absolute; inset: auto 0 0 0; height: 30%; pointer-events: none; background: linear-gradient(180deg, transparent, rgba(23, 26, 46, 0.9)); }
+@keyframes sk { to { background-position: -220% 0; } }
+
+.live {
+  position: absolute; z-index: 2; top: 10px; right: 10px; padding: 3px 9px; border-radius: 99px;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--gold); background: rgba(22, 24, 39, 0.78); border: 1px solid rgba(246, 200, 90, 0.5); backdrop-filter: blur(4px);
+}
+
+.footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 14px 14px; }
+/* narrow card (mobile): stack cost above a full-width button */
+@container gamecard (max-width: 262px) {
+  .footer { flex-direction: column; align-items: stretch; gap: 10px; }
+  .footer > :first-child { justify-content: center; }
+  .footer button { width: 100%; padding-block: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { .art { animation: none; } .card, .art img { transition: none; } }
+
+/* grid mode (All Games page): the grid decides the width */
+.fluid { flex: none; width: 100%; }

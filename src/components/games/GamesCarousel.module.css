@@ -1,0 +1,22 @@
+.wrap { width: 100%; }
+.viewport { position: relative; }
+.track {
+  display: flex; gap: 18px; overflow-x: auto; overflow-y: hidden; padding: 14px 0 26px;
+  scrollbar-width: none; -ms-overflow-style: none; overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch; touch-action: pan-x pan-y; cursor: grab;
+}
+.track::-webkit-scrollbar { display: none; }
+.track[data-dragging="true"] { cursor: grabbing; }
+.slot { flex: none; display: flex; }
+@media (min-width: 768px) { .track { gap: 22px; } }
+.fade { position: absolute; top: 0; bottom: 0; width: 28px; pointer-events: none; z-index: 3; }
+.left { left: 0; background: linear-gradient(90deg, var(--bg), transparent); }
+.right { right: 0; background: linear-gradient(270deg, var(--bg), transparent); }
+@media (min-width: 992px) { .fade { width: 90px; } }
+
+.status { display: flex; justify-content: center; margin-top: 4px; }
+.pauseBtn { display: inline-flex; align-items: center; gap: 7px; border: 0; background: none; color: var(--muted); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 8px 12px; border-radius: 99px; cursor: pointer; }
+@media (hover: hover) { .pauseBtn:hover { color: var(--text); background: rgba(255, 255, 255, 0.05); } }
+.flow { display: inline-block; animation: nudge 1.6s ease-in-out infinite; }
+@keyframes nudge { 50% { transform: translateX(4px); } }
+@media (prefers-reduced-motion: reduce) { .flow { animation: none; } }

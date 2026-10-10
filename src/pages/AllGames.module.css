@@ -1,0 +1,24 @@
+.page { position: relative; min-height: 100dvh; background: var(--bg); padding-bottom: 56px; }
+.glow { position: absolute; inset: 0 0 auto 0; height: 520px; pointer-events: none; background: radial-gradient(900px 380px at 12% -8%, rgba(111, 141, 255, 0.16), transparent 60%), radial-gradient(700px 360px at 96% 8%, rgba(139, 108, 255, 0.13), transparent 60%); }
+.container { position: relative; max-width: var(--max-w); margin: 0 auto; padding: 0 16px; }
+@media (min-width: 768px) { .container { padding: 0 32px; } }
+.top { display: flex; align-items: center; justify-content: space-between; padding: calc(14px + env(safe-area-inset-top)) 0 4px; }
+.back { display: inline-flex; align-items: center; gap: 2px; padding: 8px 14px 8px 8px; border-radius: 99px; border: 1px solid var(--line); background: rgba(255, 255, 255, 0.05); color: var(--text); font-weight: 600; font-size: 0.86rem; cursor: pointer; transition: transform 0.2s, background 0.2s; }
+.back:active { transform: scale(0.94); }
+@media (hover: hover) { .back:hover { background: rgba(255, 255, 255, 0.1); transform: translateX(-2px); } }
+.chips { display: flex; gap: 8px; }
+.bal { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px 6px 8px; border-radius: 99px; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--line); font-weight: 700; font-size: 0.88rem; font-variant-numeric: tabular-nums; }
+.hero { padding: 22px 2px 4px; }
+.hero h1 { margin: 0; font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; }
+.hero p { margin: 4px 0 0; color: var(--muted); font-size: 0.92rem; }
+
+.group { margin-top: 18px; }
+.groupHead { display: flex; align-items: baseline; gap: 10px; margin: 0 2px 12px; font-size: 1.15rem; font-weight: 700; }
+.groupHead span { font-size: 0.74rem; font-weight: 500; color: var(--muted); }
+.groupHead::after { content: ""; flex: 1; height: 1px; align-self: center; background: linear-gradient(90deg, var(--line), transparent); }
+
+.grid { display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 640px) { .grid { gap: 18px; grid-template-columns: repeat(auto-fill, minmax(236px, 1fr)); } }
+@media (min-width: 1200px) { .grid { gap: 22px; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); } }
+.cell { display: flex; min-width: 0; }
+.cell > * { width: 100%; }

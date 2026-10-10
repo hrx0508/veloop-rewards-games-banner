@@ -1,0 +1,29 @@
+.page { position: relative; min-height: 100dvh; overflow: hidden; background: var(--bg); padding-bottom: 48px; }
+.glow { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(900px 380px at 12% -8%, rgba(111, 141, 255, 0.16), transparent 60%), radial-gradient(700px 360px at 96% 8%, rgba(139, 108, 255, 0.13), transparent 60%); }
+.container { position: relative; max-width: var(--max-w); margin: 0 auto; padding: 0 16px; }
+@media (min-width: 768px) { .container { padding: 0 32px; } }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: calc(16px + env(safe-area-inset-top)) 0 4px; }
+.brand { font-weight: 800; letter-spacing: 0.16em; font-size: 0.95rem; } .brand b { font-weight: 500; color: var(--muted); letter-spacing: 0.06em; }
+.chips { display: flex; gap: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px 6px 8px; border-radius: 99px; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--line); font-weight: 700; font-size: 0.88rem; font-variant-numeric: tabular-nums; }
+.chip small { color: var(--muted); font-weight: 500; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+@media (max-width: 360px) { .chip small { display: none; } }
+
+.hero { text-align: center; padding: 34px 6px 8px; }
+.eyebrow { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.4em; color: var(--gold); padding-left: 0.4em; }
+.hero h1 { margin: 8px 0 8px; font-size: clamp(1.55rem, 4.6vw, 2.5rem); font-weight: 700; line-height: 1.15; }
+.hero h1 span { background: linear-gradient(90deg, #a79bff, #6fa4ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero p { margin: 0 auto; max-width: 520px; color: var(--muted); font-size: clamp(0.84rem, 2.2vw, 0.98rem); }
+
+.demo { margin: 26px auto 0; max-width: 560px; border: 1px dashed var(--line); border-radius: 14px; padding: 10px 14px; color: var(--muted); font-size: 0.8rem; }
+.demo summary { cursor: pointer; }
+.demoRow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
+.demoRow button { display: inline-flex; align-items: center; gap: 5px; padding: 6px 12px; border-radius: 99px; border: 1px solid var(--line); background: var(--surface); color: var(--text); font-size: 0.78rem; cursor: pointer; }
+@media (hover: hover) { .demoRow button:hover { border-color: var(--line-strong); } }
+
+.rowHead { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 26px 2px 4px; }
+.rowHead h2 { margin: 0; font-size: clamp(1.05rem, 3vw, 1.3rem); font-weight: 700; display: flex; align-items: baseline; gap: 10px; }
+.rowHead h2 small { font-size: 0.74rem; font-weight: 500; color: var(--muted); }
+.viewAll { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 99px; font-size: 0.86rem; font-weight: 600; color: #fff; text-decoration: none; background: rgba(111, 141, 255, 0.14); border: 1px solid var(--line-strong); transition: background 0.25s, transform 0.2s, gap 0.25s; }
+.viewAll:active { transform: scale(0.95); }
+@media (hover: hover) { .viewAll:hover { background: rgba(111, 141, 255, 0.28); gap: 10px; } }
